@@ -4,7 +4,7 @@ public class Card {
     private int value;
 
 
-    public Card(int value, String suit, String rank) {
+    public Card( String rank, String suit, int value) {
         this.value = value;
         this.suit = suit;
         this.rank = rank;

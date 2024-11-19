@@ -40,7 +40,6 @@ public class Player {
     }
     
     public String toString(String name, ArrayList<Card> hand, int points){
-        String s = name + " has " + points + " points" + "/n" + name + "'s cards: " + hand;
-        return s;
+        return name + " has " + points + " points" + "/n" + name + "'s cards: " + hand;
     }
 }

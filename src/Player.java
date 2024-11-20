@@ -9,6 +9,9 @@ public class Player {
     public Player(String name) {
         this.name = name;
         points = 0;
+        this.hand = hand;
+
+
     }
 
     public Player(String name, ArrayList<Card> hand) {

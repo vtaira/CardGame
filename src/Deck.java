@@ -15,15 +15,43 @@ public class Deck {
      }
      cardsLeft = cards.size();
     }
+public boolean isEmpty()
+{
+    if(cardsLeft == 0)
+    {
+        return true;
+    }
+    else {
+        return false;
+    }
+}
+
+public int getCardsLeft()
+{
+    return cardsLeft;
+}
+
+public Card deal()
+{
+    if (cardsLeft == 0)
+    {
+        return null;
+    }
+
+    cardsLeft --;
+    return cards.get(cardsLeft);
+}
 
 public void shuffle(ArrayList<Card> cards)
 {
  for (int i = cards.size() - 1; i >= 0; i--)
  {
-
+    int random = (int) (Math.random() * i);
+    cards.set(i, cards.get(random));
+    cards.set(random, cards.get(i));
+    i--;
  }
 }
 
-public void main() {
-}
+
 }

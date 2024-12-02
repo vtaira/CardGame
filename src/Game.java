@@ -38,6 +38,38 @@ public class Game {
         System.out.println("Your hand: " + you.getHand());
         System.out.println("Dealer's hand:" + dealer.getHand().get(0));
         while (true){
+            System.out.println("You have:" + you.getHand());
+            System.out.println("Do you want to hit or stand?");
+            String yourChoice = input.nextLine();
+            if (yourChoice.equals("hit"))
+            {
+                you.addCard(gameDeck.deal());
+                System.out.println("you drew a " + you.getHand());
+                if(you.getPoints() > 21)
+                {
+                    System.out.println("You busted! The Dealer wins!");
+                    return;
+                }
+            }
+            System.out.println("Dealer's turn:");
+            while(dealer.getPoints() < 17)
+            {
+                dealer.addCard(gameDeck.deal());
+                System.out.println("Dealer draws a" + dealer.getHand());
+            }
+            System.out.println("Dealer's hand: " + dealer.getHand());
+            System.out.println("Your hand: " + you.getHand());
+
+            if (you.getPoints() > dealer.getPoints())
+            {
+                System.out.println("You win!");
+            }
+            if (dealer.getPoints() > you.getPoints()){
+                System.out.println("Dealer wins!");
+            }
+            else{
+                System.out.println("It's a tie!");
+            }
 
         }
 

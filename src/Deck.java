@@ -1,20 +1,20 @@
 import java.util.ArrayList;
 
 public class Deck {
+    //instance variables
     private int cardsLeft;
     private ArrayList<Card> cards;
 
+    //constructor
     public Deck(String[] ranks, String[] suits, int[] values) {
-     cards = new ArrayList<Card>();
+     this.cards = new ArrayList<>();
      for(String suit : suits)
-     {
-        for (int i = 0; i < ranks.length; i++)
-        {
-            cards.add(new Card(ranks[i], suit, values[i]));
-        }
-     }
+         for (int i = 0; i < ranks.length; i++) {
+             cards.add(new Card(ranks[i], suit, values[i]));
+         }
      cardsLeft = cards.size();
     }
+
 public boolean isEmpty()
 {
     if(cardsLeft == 0)
@@ -42,16 +42,20 @@ public Card deal()
     return cards.get(cardsLeft);
 }
 
-public void shuffle(ArrayList<Card> cards)
+public void shuffle()
 {
  for (int i = cards.size() - 1; i >= 0; i--)
  {
     int random = (int) (Math.random() * i);
+   Card temp = cards.get(i);
     cards.set(i, cards.get(random));
-    cards.set(random, cards.get(i));
+    cards.set(random, temp);
     i--;
  }
 }
 
 
+    public static void main(String[] args) {
+
+    }
 }

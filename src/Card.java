@@ -34,7 +34,9 @@ public class Card {
         this.value = value;
     }
 
-    public String toString(String rank, String suit) {
+
+    public String toString()
+    {
         return rank + " of " + suit;
     }
 }

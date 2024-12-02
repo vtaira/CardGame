@@ -3,15 +3,13 @@ import java.util.ArrayList;
 public class Player {
     private String name;
     private int points;
-    private ArrayList<Card> hand;
+    ArrayList<Card> hand;
 
 
     public Player(String name) {
         this.name = name;
         points = 0;
-        this.hand = hand;
-
-
+        this.hand = new ArrayList<>();
     }
 
     public Player(String name, ArrayList<Card> hand) {

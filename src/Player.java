@@ -38,6 +38,7 @@ public class Player {
     public void addCard (Card newCard)
     {
         hand.add(newCard);
+        points += newCard.getValue();
     }
     
     public String toString(String name, ArrayList<Card> hand, int points){

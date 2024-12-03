@@ -1,4 +1,3 @@
-import java.util.ArrayList;
 import java.util.Scanner;
 
 public class Game {
@@ -32,39 +31,59 @@ public class Game {
         you.addCard(gameDeck.deal());
         you.addCard(gameDeck.deal());
 
+
+
+
         dealer.addCard(gameDeck.deal());
         dealer.addCard(gameDeck.deal());
 
+
         System.out.println("Your hand: " + you.getHand());
-        System.out.println("Dealer's hand:" + dealer.getHand().get(0));
-        while (true){
+        System.out.println("Dealer's hand: " + dealer.hand.getFirst());
+        if(you.getPoints() == 21 && dealer.getPoints() != 21)
+        {
+            System.out.println("Natural! You win!");
+            return;
+        }
+        else if(dealer.getPoints() == 21 && you.getPoints() != 21)
+        {
+            System.out.println("Dealer has blackjack - dealer wins!");
+            return;
+        }
+
+        while (true) {
             System.out.println("You have:" + you.getHand());
             System.out.println("Do you want to hit or stand?");
             String yourChoice = input.nextLine();
-            if (yourChoice.equals("hit"))
-            {
+            if (yourChoice.equals("hit")) {
                 you.addCard(gameDeck.deal());
-                System.out.println("you drew a " + you.getHand());
-                if(you.getPoints() > 21)
-                {
+                System.out.println("you drew a " + you.hand.getLast());
+                if (you.getPoints() > 21) {
                     System.out.println("You busted! The Dealer wins!");
                     return;
                 }
+            } else if (yourChoice.equals("stand")) {
+                break;
             }
-            System.out.println("Dealer's turn:");
+        }
+
+        System.out.println("Dealer's turn:");
             while(dealer.getPoints() < 17)
             {
                 dealer.addCard(gameDeck.deal());
-                System.out.println("Dealer draws a" + dealer.getHand());
+                System.out.println("Dealer draws a " + dealer.hand.getLast());
             }
             System.out.println("Dealer's hand: " + dealer.getHand());
             System.out.println("Your hand: " + you.getHand());
-
-            if (you.getPoints() > dealer.getPoints())
+            if(dealer.getPoints() > 21)
+            {
+                System.out.println("Dealer busts! You win!");
+            }
+            else if (you.getPoints() > dealer.getPoints())
             {
                 System.out.println("You win!");
             }
-            if (dealer.getPoints() > you.getPoints()){
+           else if (dealer.getPoints() > you.getPoints()){
                 System.out.println("Dealer wins!");
             }
             else{
@@ -72,13 +91,11 @@ public class Game {
             }
 
         }
-
-    }
-
-    public static void main(String[] args) {
+    public void main(String[] args) {
         Game game1 = new Game();
         game1.printInstructions();
         game1.playGame();
 
     }
 }
+

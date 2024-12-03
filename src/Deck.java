@@ -3,7 +3,7 @@ import java.util.ArrayList;
 public class Deck {
     //instance variables
     private int cardsLeft;
-    private ArrayList<Card> cards;
+    private final ArrayList<Card> cards;
 
     //constructor
     public Deck(String[] ranks, String[] suits, int[] values) {
@@ -17,13 +17,7 @@ public class Deck {
 
 public boolean isEmpty()
 {
-    if(cardsLeft == 0)
-    {
-        return true;
-    }
-    else {
-        return false;
-    }
+    return cardsLeft == 0;
 }
 
 public int getCardsLeft()
